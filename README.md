@@ -1,3 +1,9 @@
+Banque , libs RageUI, simple rien de spécial
+
+https://discord.gg/g9dXrcAcwn
+
+Script créer par moi-même (Stax)
+
 Ce système de banque contient : 
 - Déposer 
 - Retirer 
@@ -6,4 +12,4 @@ Ce système de banque contient :
 - Vous pouvez retirer aux atm car c'est par props donc pas besoin de mettre 50 positions d'atm dans le shared.lua 
 - Vous pouvez aussi retirer dans la banque
 
------------------------Créer par moi même (Stax)
+Créer par moi même (Stax)
