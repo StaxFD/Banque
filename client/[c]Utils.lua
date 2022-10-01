@@ -9,6 +9,11 @@ CreateThread(function()
     TriggerEvent("Banque:blips")
 end)
 
+RegisterNetEvent('esx:playerLoaded')
+AddEventHandler('esx:playerLoaded', function(xPlayer)
+    ESX.PlayerData = xPlayer
+end)
+
 local tablepositionsandblips = _Banque.PositionsBanque
 function _Banque.Menu:Main()
     _Banque.Menu.Create()
