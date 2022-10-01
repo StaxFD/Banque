@@ -40,7 +40,7 @@ AddEventHandler(("%s:Retirer_"):format(_Banque.Event.Prefix), function(number)
     else
         TriggerClientEvent(_Banque.Translations.Menu.TypeNotif, src, _Banque.Translations.Menu.No_Money)
     end    
-end) 
+end)
 
 RegisterNetEvent(("%s:VerifTransferer_"):format(_Banque.Event.Prefix))
 AddEventHandler(("%s:VerifTransferer_"):format(_Banque.Event.Prefix), function(number, ID)
@@ -53,7 +53,7 @@ AddEventHandler(("%s:VerifTransferer_"):format(_Banque.Event.Prefix), function(n
         return
     end
     local target = ESX.GetPlayerFromId(ID)
-    if (not (target)) then
+    if  (target == nil or target == -1) then
         TriggerClientEvent(_Banque.Translations.Menu.TypeNotif, src, _Banque.Translations.Menu.no_players)
         return
     end
@@ -76,9 +76,9 @@ AddEventHandler(("%s:Transferer_"):format(_Banque.Event.Prefix), function(number
     end
     local target = ESX.GetPlayerFromId(ID)
     local xMoney = xPlayer.getMoney()
-    if xMoney >= number then
-        xPlayer.removeAccountMoney('bank', number)
-        target.addAccountMoney('bank', number)
+    if xMoney >= tonumber(number) then
+        xPlayer.removeAccountMoney('bank', tonumber(number))
+        target.addAccountMoney('bank', tonumber(number))
         TriggerClientEvent(_Banque.Translations.Menu.TypeAdvancedNotif, src, _Banque.Translations.Menu.Title, _Banque.Translations.Menu.MyBank, "Vous avez transféré ~g~"..number.." $~s~ à "..GetPlayerName(ID).." !", _Banque.Translations.Menu.Char_Notif, 10)
         TriggerClientEvent(_Banque.Translations.Menu.TypeAdvancedNotif, ID, _Banque.Translations.Menu.Title, _Banque.Translations.Menu.MyBank, "Vous avez reçu ~g~"..number.." $~s~ de "..GetPlayerName(src).." !", _Banque.Translations.Menu.Char_Notif, 10)
     else
