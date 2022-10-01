@@ -1,4 +1,5 @@
 function _BanqueButton()
+    ESX.PlayerData = ESX.GetPlayerData()
     RageUI.Separator("Nom du compte : ~o~"..GetPlayerName(PlayerId()))
     for key, value in pairs(ESX.PlayerData.accounts) do 
         if value.name == "bank" then 
@@ -53,11 +54,9 @@ end
 
 
 RegisterNetEvent(("%s:Transferer_"):format(_Banque.Event.Prefix))
-AddEventHandler(("%s:Transferer_"):format(_Banque.Event.Prefix), function(number, id)
+AddEventHandler(("%s:Transferer_"):format(_Banque.Event.Prefix), function(number, ID)
     TriggerServerEvent(("%s:Transferer_"):format(_Banque.Event.Prefix), tonumber(number), tonumber(ID))
     TriggerServerEvent(("%s:InsertHistorique_"):format(_Banque.Event.Prefix), "[~r~-~s~] - ~r~Transfére~s~", tonumber(number))
-    Wait(100)
-    ESX.PlayerData = ESX.GetPlayerData()
 end)
 
 
