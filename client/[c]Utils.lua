@@ -5,6 +5,7 @@ CreateThread(function()
         TriggerEvent(_Banque.ESX, function(obj) ESX = obj end)
         Citizen.Wait(80)
     end
+    ESX.PlayerData = ESX.GetPlayerData()
     TriggerEvent("Banque:blips")
 end)
 
